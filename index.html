@@ -27,6 +27,9 @@
 
         function setData(data){
             document.getElementById("githubname").innerText=data["name"];
+            document.getElementById("bio").innerText=data["bio"];
+            document.getElementById("followers").innerText=data["followers"];
+            document.getElementById("following").innerText=data["following"];
         }
     </script>
   </head>
@@ -54,8 +57,12 @@
         <center>
             <img src="https://avatars.githubusercontent.com/u/49119262?v=4" alt="My photo" class="rounded-circle">
             <h1> Hi This is my portfolio ....</h1>
-                <h2><span id="githubname"></span></h2> 
-                </center>      
+                <h2><span id="githubname"></span></h2>
+                <h3 class="alert alert-primary"><span id="bio"></span></h3> 
+                <h3 class="alert alert-dark"> I have been followed by <span id="followers"></span> awesome people..!</h3>
+                <h3 class="alert alert-light">My following Numbers <span id="following"></span></h3>    
+            
+            </center>      
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
