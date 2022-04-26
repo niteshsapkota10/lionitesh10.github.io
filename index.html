@@ -9,8 +9,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>My Portfolio -- Nitesh </title>
+    <script>
+        function getMyData(){
+            var xhttp=new XMLHttpRequest();
+            
+            xhttp.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    console.log(this.responseText);
+                    data=JSON.parse(this.responseText);
+                    setData(data);
+                }
+            }
+
+            xhttp.open("GET","https://api.github.com/users/lionitesh10",true);
+            xhttp.send()
+        }
+
+        function setData(data){
+            document.getElementById("githubname").innerText=data["name"];
+        }
+    </script>
   </head>
-  <body>
+  <body onload="getMyData();">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;;">
         <a class="navbar-brand" href="#">My Portfolio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +51,10 @@
         </div>
       </nav>
     <div>
-        <center><h1> Hi This is my portfolio ....</h1>
-                <h2> I am Nitesh !!</h2> 
+        <center>
+            <img src="https://avatars.githubusercontent.com/u/49119262?v=4" alt="My photo" class="rounded-circle">
+            <h1> Hi This is my portfolio ....</h1>
+                <h2><span id="githubname"></span></h2> 
                 </center>      
     </div>
     <!-- Optional JavaScript -->
